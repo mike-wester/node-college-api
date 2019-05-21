@@ -1,0 +1,33 @@
+{
+  "name": "advicent",
+  "version": "1.0.0",
+  "description": "Advicent Takehome College Tuition",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.2.5",
+    "mongoose": "^5.5.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benderCO/advincent.git"
+  },
+  "keywords": [
+    "RESTful",
+    "API"
+  ],
+  "author": "BenderCO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benderCO/advincent/issues"
+  },
+  "homepage": "https://github.com/benderCO/advincent#readme"
+}
