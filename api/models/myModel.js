@@ -24,6 +24,14 @@ var CollegeSchema = new Schema({
     versionKey: false
 });
 
+CollegeSchema.virtual('totalInStateCost').get(function() {  
+    return this.tuitionInState + this.roomAndBoard;
+});
+
+CollegeSchema.virtual('totalOutOfStateCost').get(function() {  
+    return this.tuitionOutState + this.roomAndBoard;
+});
+
 CollegeSchema.query.byName = function(collegeName) {
     return this.where({ college: collegeName });
 };

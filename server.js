@@ -29,10 +29,10 @@ fs.createReadStream('./college_costs.csv')
 				new_college.save();
     		}
 
-		});
+		})
     }
     catch(err) {
-        console.log('ERR: ', err);
+        console.log('RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEEERERERERE: ', err);
     }
 })
 .on('end',function(){

@@ -42,6 +42,7 @@ exports.create_a_college = function(req, res) {
 
 exports.read_a_college = function(req, res) {
   if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.status(400);
     res.send('ERROR: College ID is Required');
   }
 
@@ -49,6 +50,7 @@ exports.read_a_college = function(req, res) {
     if (err) {
       res.send(err);
     } else if (college.length <= 0) {
+      res.status(404);
       res.send('ERROR: College Not Found');
     }
     res.json(college);
@@ -57,6 +59,7 @@ exports.read_a_college = function(req, res) {
 
 exports.update_a_college = function(req, res) {
   if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.status(400);
     res.send('ERROR: College ID is Required');
   }
 
@@ -70,6 +73,7 @@ exports.update_a_college = function(req, res) {
 
 exports.delete_a_college = function(req, res) {
   if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.status(400);
     res.send('ERROR: College ID is Required');
   }
 
@@ -84,19 +88,25 @@ exports.delete_a_college = function(req, res) {
 // Single College by Name
 exports.read_a_college_by_name = function(req, res) {
   if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.status(400);
     res.send('ERROR: College Name is Required');
   }
 
   College.find().byName(req.params.collegeName).exec(function(err, college) {
     if (err) {
       res.send(err);
+    } else if (college.length <= 0) {
+      res.status(404);
+      res.send('ERROR: College Not Found');
     }
+
     res.json(college);
   });
 };
 
 exports.update_a_college_by_name = function(req, res) {
   if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.status(400);
     res.send('ERROR: College Name is Required');
   }
 
@@ -109,7 +119,8 @@ exports.update_a_college_by_name = function(req, res) {
 };
 
 exports.delete_a_college_by_name = function(req, res) {
-  if(req.params.collegeId === null || req.params.collegeId === '') {
+  if(req.params.collegeId === null || req.params.collegeId === ''0 {
+    res.status(400);
     res.send('ERROR: College Name is Required');
   }
 
