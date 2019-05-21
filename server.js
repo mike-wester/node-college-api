@@ -25,7 +25,11 @@ fs.createReadStream('./college_costs.csv')
 
     	College.find().byName(data[0]).exec(function(err, college) {
     		if(college.length <= 0) {
-				var new_college = new College({college: data[0], tuitionInState: data[1], tuitionOutState: data[2], roomAndBoard: data[3]});
+				var new_college = new College({
+					college: data[0], 
+					tuitionInState: isNaN(data[1]) ? 0 : parseFloat(data[1]), 
+					tuitionOutState: isNaN(data[2]) ? 0 : parseFloat(data[2]), 
+					roomAndBoard: isNaN(data[3]) ? 0 : parseFloat(data[3])});
 				new_college.save();
     		}
 
