@@ -41,15 +41,25 @@ exports.create_a_college = function(req, res) {
 };
 
 exports.read_a_college = function(req, res) {
+  if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.send('ERROR: College ID is Required');
+  }
+
   College.findById(req.params.collegeId, function(err, college) {
     if (err) {
       res.send(err);
+    } else if (college.length <= 0) {
+      res.send('ERROR: College Not Found');
     }
     res.json(college);
   });
 };
 
 exports.update_a_college = function(req, res) {
+  if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.send('ERROR: College ID is Required');
+  }
+
   College.findOneAndUpdate({_id: req.params.collegeId}, req.body, {new: true}, function(err, college) {
     if (err) {
       res.send(err);
@@ -59,6 +69,10 @@ exports.update_a_college = function(req, res) {
 };
 
 exports.delete_a_college = function(req, res) {
+  if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.send('ERROR: College ID is Required');
+  }
+
   College.remove({_id: req.params.collegeId}, function(err, college) {
     if (err){
       res.send(err);
@@ -69,10 +83,11 @@ exports.delete_a_college = function(req, res) {
 
 // Single College by Name
 exports.read_a_college_by_name = function(req, res) {
+  if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.send('ERROR: College Name is Required');
+  }
+
   College.find().byName(req.params.collegeName).exec(function(err, college) {
-    console.log('Attempting to find name: ', req.params.collegeName);
-    console.log('Attempting to find name err: ', err);
-    console.log('Attempting to find name college: ', college);
     if (err) {
       res.send(err);
     }
@@ -81,6 +96,10 @@ exports.read_a_college_by_name = function(req, res) {
 };
 
 exports.update_a_college_by_name = function(req, res) {
+  if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.send('ERROR: College Name is Required');
+  }
+
   College.findOneAndUpdate({college: req.params.collegeName}, req.body, {new: true}, function(err, college) {
     if (err) {
       res.send(err);
@@ -90,6 +109,10 @@ exports.update_a_college_by_name = function(req, res) {
 };
 
 exports.delete_a_college_by_name = function(req, res) {
+  if(req.params.collegeId === null || req.params.collegeId === '') {
+    res.send('ERROR: College Name is Required');
+  }
+
   College.remove({college: req.params.collegeName}, function(err, college) {
     if (err){
       res.send(err);
