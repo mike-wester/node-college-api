@@ -10,12 +10,12 @@ module.exports = function(app) {
     .post(collegeList.create_a_college);
 
   app.route('/college/:collegeId')
+    .delete(collegeList.delete_a_college)
     .get(collegeList.read_a_college)
-    .put(collegeList.update_a_college)
-    .delete(collegeList.delete_a_college);
+    .put(collegeList.update_a_college);
 
   app.route('/collegeByName/:collegeName')
+    .delete(collegeList.delete_a_college_by_name)
     .get(collegeList.read_a_college_by_name)
-    .put(collegeList.update_a_college_by_name)
-    .delete(collegeList.delete_a_college_by_name);
+    .put(collegeList.update_a_college_by_name);
 };
