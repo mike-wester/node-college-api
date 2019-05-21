@@ -20,6 +20,8 @@ var CollegeSchema = new Schema({
     type: Date,
     default: Date.now
   }
+}, {
+    versionKey: false
 });
 
 CollegeSchema.query.byName = function(collegeName) {
