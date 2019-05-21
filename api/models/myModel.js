@@ -8,15 +8,13 @@ var CollegeSchema = new Schema({
     required: 'ERROR: College Name is Required'
   },
   tuitionInState: {
-    type: Number,
-    required: 'ERROR: TuitionInState is Required'
+    type: Number
   },
   tuitionOutState: {
     type: Number
   },
   roomAndBoard: {
-    type: Number,
-    required: 'ERROR: RoomAndBoard is Required'
+    type: Number
   },
   Created_date: {
     type: Date,

@@ -70,6 +70,9 @@ exports.delete_a_college = function(req, res) {
 // Single College by Name
 exports.read_a_college_by_name = function(req, res) {
   College.find().byName(req.params.collegeName).exec(function(err, college) {
+    console.log('Attempting to find name: ', req.params.collegeName);
+    console.log('Attempting to find name err: ', err);
+    console.log('Attempting to find name college: ', college);
     if (err) {
       res.send(err);
     }
