@@ -7,7 +7,7 @@ var express = require('express'),
   bodyParser = require('body-parser');
   
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/collegeDB'); 
+mongoose.connect('mongodb://localhost/collegeDB', { useNewUrlParser: true }); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -32,7 +32,7 @@ fs.createReadStream('./college_costs.csv')
 		})
     }
     catch(err) {
-        console.log('RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEEERERERERE: ', err);
+        console.log('RAGE!: ', err);
     }
 })
 .on('end',function(){

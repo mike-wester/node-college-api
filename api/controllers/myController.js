@@ -87,7 +87,7 @@ exports.delete_a_college = function(req, res) {
 
 // Single College by Name
 exports.read_a_college_by_name = function(req, res) {
-  if(req.params.collegeId === null || req.params.collegeId === '') {
+  if(req.params.collegeName === null || req.params.collegeName === '') {
     res.status(400);
     res.send('ERROR: College Name is Required');
   }
@@ -105,7 +105,7 @@ exports.read_a_college_by_name = function(req, res) {
 };
 
 exports.update_a_college_by_name = function(req, res) {
-  if(req.params.collegeId === null || req.params.collegeId === '') {
+  if(req.params.collegeName === null || req.params.collegeName === '') {
     res.status(400);
     res.send('ERROR: College Name is Required');
   }
@@ -119,7 +119,7 @@ exports.update_a_college_by_name = function(req, res) {
 };
 
 exports.delete_a_college_by_name = function(req, res) {
-  if(req.params.collegeId === null || req.params.collegeId === ''0 {
+  if(req.params.collegeName === null || req.params.collegeName === '') {
     res.status(400);
     res.send('ERROR: College Name is Required');
   }
