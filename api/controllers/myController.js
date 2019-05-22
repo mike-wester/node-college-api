@@ -30,7 +30,7 @@ exports.create_colleges = function(req, res) {
 };
 
 // Single College by ID
-exports.create_a_college = function(req, res) {
+exports.create_college = function(req, res) {
   var new_college = new College(req.body);
   new_college.save(function(err, college) {
     if (err) {
@@ -40,6 +40,25 @@ exports.create_a_college = function(req, res) {
   });
 };
 
+exports.read_college = function(req, res) {
+  var new_college = new College(req.body);
+  if(new_college.college === null || new_college.college === '') {
+    res.status(400);
+    res.send('ERROR: College Name is Required');
+  } else {
+    College.find().byName(new_college.college).exec(function(err, college) {
+      if (err) {
+        res.send(err);
+      } else if (college.length <= 0) {
+        res.status(404);
+        res.send('ERROR: College Not Found');
+      }
+      res.json(college);
+    });
+  }
+};
+
+// Single College by Id
 exports.read_a_college = function(req, res) {
   if(req.params.collegeId === null || req.params.collegeId === '') {
     res.status(400);

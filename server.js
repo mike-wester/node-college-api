@@ -36,11 +36,11 @@ fs.createReadStream('./college_costs.csv')
 		})
     }
     catch(err) {
-        console.log('RAGE!: ', err);
+        console.log('ERR: ', err);
     }
 })
 .on('end',function(){
-    console.log('CSV entries Loaded');
+    console.log('CSV entries Processing');
 });
 
 app.listen(port);

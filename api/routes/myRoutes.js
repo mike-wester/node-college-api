@@ -7,7 +7,8 @@ module.exports = function(app) {
     .post(collegeList.create_colleges);
 
   app.route('/college')
-    .post(collegeList.create_a_college);
+    .get(collegeList.read_college)
+    .post(collegeList.create_college);
 
   app.route('/college/:collegeId')
     .delete(collegeList.delete_a_college)
