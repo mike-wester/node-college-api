@@ -9,7 +9,8 @@
     "fast-csv": "^2.5.0",
     "mongo": "^0.1.0",
     "mongodb": "^3.2.5",
-    "mongoose": "^5.5.10"
+    "mongoose": "^5.5.10",
+    "npm": "^6.9.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
