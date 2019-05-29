@@ -1,4 +1,4 @@
-# College nodejs API
+# College NodeJS API
 
 How to get started:
 
